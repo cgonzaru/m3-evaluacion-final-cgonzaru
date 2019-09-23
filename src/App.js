@@ -1,5 +1,6 @@
 import React from 'react';
 import {fetchCharacters} from './services/fetchCharacters';
+import Filters from './components/Filters';
 import './App.css';
 
 class App extends React.Component {
@@ -41,13 +42,15 @@ class App extends React.Component {
       <div className="app">
         <header className="app__t"><h1 className="title">Rick and Morty</h1></header>
         <main className="app__main">
-          <input type="text" className="userInput" onChange={this.getUserInput} />
+          <Filters 
+            getUserInput={this.getUserInput}
+          />
           <ul className="characters-list">
             {this.state.characters
               .filter(character => character.name.toUpperCase().includes(this.state.userInput.toUpperCase()))
               .map(item => {
               return (
-                <li className="character-name" key={item.id}>
+                <li className="character" key={item.id}>
                   <div className="character-card">
                     <img src={item.image} alt={item.name} className="character-img"/>
                     <h2 className="character-name">{item.name}</h2>
