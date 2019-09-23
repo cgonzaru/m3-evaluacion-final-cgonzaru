@@ -15,11 +15,29 @@
 
 .characters-list {
   list-style: none;
+  display: grid;
+  grid-template-columns: auto auto auto auto;
+  padding: 10px;
+}
+
+.character {
+  display:flex;
+  justify-content: center;
+  text-align: center;
 }
 
 .character-card {
-  background-color: cyan;
-  width: 300px;
+  background-color: #36B0C7;
+  width: 200px;
   color: white;
+  text-align: left;
+  line-height: 20px;
 }
 
+.character-img {
+  width: 200px;
+}
+
+.character-link {
+  text-decoration: none;
+}
