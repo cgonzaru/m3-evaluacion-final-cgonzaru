@@ -1,6 +1,7 @@
 import React from 'react';
 import {fetchCharacters} from './services/fetchCharacters';
 import Filters from './components/Filters';
+import CharacterList from './components/CharacterList';
 import './App.css';
 
 class App extends React.Component {
@@ -45,21 +46,11 @@ class App extends React.Component {
           <Filters 
             getUserInput={this.getUserInput}
           />
-          <ul className="characters-list">
-            {this.state.characters
-              .filter(character => character.name.toUpperCase().includes(this.state.userInput.toUpperCase()))
-              .map(item => {
-              return (
-                <li className="character" key={item.id}>
-                  <div className="character-card">
-                    <img src={item.image} alt={item.name} className="character-img"/>
-                    <h2 className="character-name">{item.name}</h2>
-                    <p className="character-specie">{item.species}</p>
-                  </div>
-                </li>
-              );
-            })}
-          </ul>
+          <CharacterList 
+            characters={this.state.characters}
+            userInput={this.state.userInput}
+          />
+          
         </main>
       </div>
     );
