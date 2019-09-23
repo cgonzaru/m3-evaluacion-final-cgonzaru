@@ -1,10 +1,10 @@
 import React, {Fragment} from 'react';
+import {Switch, Route} from 'react-router-dom';
 import {fetchCharacters} from './services/fetchCharacters';
 import Filters from './components/Filters';
 import CharacterList from './components/CharacterList';
-import {Switch, Route} from 'react-router-dom';
-import './App.css';
 import CharacterDetail from './components/CharacterDetail';
+import './App.css';
 
 class App extends React.Component {
   constructor(props) {
@@ -43,7 +43,10 @@ class App extends React.Component {
   render() {
     return (
       <div className="app">
-        <header className="app__t"><h1 className="title">Rick and Morty</h1></header>
+        <header className="app__header">
+          <h1 className="title">Rick and Morty</h1>
+        </header>
+        
         <main className="app__main">
 
           <Switch>

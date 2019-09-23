@@ -1,10 +1,19 @@
-.App {
+.app {
   text-align: center;
 }
 
+.title {
+  height: 1px;
+  width: 500px;
+  margin: auto;
+  padding-top: 150px;
+  overflow: hidden;
+  background-image: url('images/logo.png');
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+
 .characters-list {
-  display: flex;
-  flex-wrap: wrap;
   list-style: none;
 }
 
