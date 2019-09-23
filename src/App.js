@@ -1,8 +1,10 @@
-import React from 'react';
+import React, {Fragment} from 'react';
 import {fetchCharacters} from './services/fetchCharacters';
 import Filters from './components/Filters';
 import CharacterList from './components/CharacterList';
+import {Switch, Route} from 'react-router-dom';
 import './App.css';
+import CharacterDetail from './components/CharacterDetail';
 
 class App extends React.Component {
   constructor(props) {
@@ -43,13 +45,44 @@ class App extends React.Component {
       <div className="app">
         <header className="app__t"><h1 className="title">Rick and Morty</h1></header>
         <main className="app__main">
-          <Filters 
+
+          <Switch>
+            <Route exact path='/' render={ () => {
+              return (
+                <Fragment>
+                  <Filters 
+                    getUserInput={this.getUserInput}
+                  />
+                  <CharacterList 
+                    characters={this.state.characters}
+                    userInput={this.state.userInput}
+                  />
+                </Fragment>
+              );
+              }} 
+            />
+
+            <Route path='/detail/:characterId' render={ routerProps => {
+              return (
+                <CharacterDetail 
+                  routerProps={routerProps}
+                  characters={this.state.characters}
+                />
+              );
+            }}
+              
+            />
+
+
+          </Switch>
+
+          {/* <Filters 
             getUserInput={this.getUserInput}
           />
           <CharacterList 
             characters={this.state.characters}
             userInput={this.state.userInput}
-          />
+          /> */}
           
         </main>
       </div>
