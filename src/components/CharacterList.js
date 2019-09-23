@@ -12,12 +12,14 @@ const CharacterList = props => {
         .map(item => {
           return (
             <li className="character" key={item.id}>
-              <Link to={`/detail/${item.id}/`} className="character-link"></Link>
-              <CharacterCard 
-                name={item.name}
-                image={item.image}
-                species={item.species}
-              />
+              <Link to={`/detail/${item.id}/`} className="character-link">
+                <CharacterCard 
+                  name={item.name}
+                  image={item.image}
+                  species={item.species}
+                />
+              </Link>
+              
             </li>
           );
         })}
