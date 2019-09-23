@@ -41,3 +41,24 @@
 .character-link {
   text-decoration: none;
 }
+
+.character-detail {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.character-info {
+  background-color: #36B0C7;
+  color: white;
+  display: flex;
+  width: 650px;
+}
+
+.info {
+  padding: 30px;
+  text-align: left;
+  line-height: 5px;
+
+}
