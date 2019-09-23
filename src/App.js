@@ -8,7 +8,7 @@ class App extends React.Component {
 
     this.state = {
       characters: [],
-      user: ''
+      userInput: ''
     }
 
     this.getUserInput = this.getUserInput.bind(this);
@@ -32,7 +32,7 @@ class App extends React.Component {
     const value = event.currentTarget.value;
 
     this.setState({
-      user: value
+      userInput: value
     })
   }
 
@@ -43,7 +43,9 @@ class App extends React.Component {
         <main className="app__main">
           <input type="text" className="userInput" onChange={this.getUserInput} />
           <ul className="characters-list">
-            {this.state.characters.map(item => {
+            {this.state.characters
+              .filter(character => character.name.toUpperCase().includes(this.state.userInput.toUpperCase()))
+              .map(item => {
               return (
                 <li className="character-name" key={item.id}>
                   <div className="character-card">
