@@ -5,7 +5,8 @@ const Filters = props => {
   const { getUserInput } = props;
   return (
     <div className="app__filters">
-      <input type="text" className="userInput" onChange={getUserInput} />
+      <label htmlFor="input" className="input"><strong>Filtra a tus personajes favoritos</strong></label>
+      <input placeholder="Nombre" id="input" type="text" className="userInput" onChange={getUserInput} />
     </div>  
   );
 };

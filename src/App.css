@@ -60,5 +60,31 @@
   padding: 30px;
   text-align: left;
   line-height: 5px;
+}
 
+.app__back {
+  color: white;
+  padding-left: 600px;
+  padding-bottom: 5px;
+  text-decoration: none;
+}
+
+.userInput {
+  margin-top: 10px;
+  background-color: black;
+  color: #36B0C7;
+  border: 2px solid #36B0C7;
+  width: 200px;
+  box-shadow: 0 0 10px gold;
+}
+
+.input {
+  color: white;
+}
+
+.app__filters {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
