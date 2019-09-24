@@ -78,14 +78,6 @@ class App extends React.Component {
 
 
           </Switch>
-
-          {/* <Filters 
-            getUserInput={this.getUserInput}
-          />
-          <CharacterList 
-            characters={this.state.characters}
-            userInput={this.state.userInput}
-          /> */}
           
         </main>
       </div>
