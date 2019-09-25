@@ -12,10 +12,14 @@ class App extends React.Component {
 
     this.state = {
       characters: [],
-      userInput: ''
+      userInput: '',
+      gender: 'all',
+      origin: 'all'
     }
 
     this.getUserInput = this.getUserInput.bind(this);
+    this.getGender = this.getGender.bind(this);
+    this.getOrigin = this.getOrigin.bind(this);
 
   }
 
@@ -40,6 +44,22 @@ class App extends React.Component {
     })
   }
 
+  getGender(event) {
+    const newGender = event.currentTarget.value;
+
+    this.setState({
+      gender: newGender
+    })
+  }
+
+  getOrigin(event) {
+    const newOrigin = event.currentTarget.value;
+
+    this.setState({
+      origin: newOrigin
+    })
+  }
+
   render() {
     return (
       <div className="app">
@@ -55,10 +75,14 @@ class App extends React.Component {
                 <Fragment>
                   <Filters 
                     getUserInput={this.getUserInput}
+                    getGender={this.getGender}
+                    getOrigin={this.getOrigin}
                   />
                   <CharacterList 
                     characters={this.state.characters}
                     userInput={this.state.userInput}
+                    gender={this.state.gender}
+                    origin={this.state.origin}
                   />
                 </Fragment>
               );

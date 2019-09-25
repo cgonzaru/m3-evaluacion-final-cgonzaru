@@ -4,11 +4,26 @@ import CharacterCard from '../components/CharacterCard';
 import {Link} from 'react-router-dom';
 
 const CharacterList = props => {
-  const {characters, userInput} = props;
+  const {characters, userInput, gender, origin} = props;
   return (
     <ul className="characters-list">
       {characters
         .filter(character => character.name.toUpperCase().includes(userInput.toUpperCase()))
+        /* .filter(character => gender === 'all' || character.gender === gender) */
+        .filter(character => {
+          if (gender === 'all') {
+            return true;
+          } else {
+            return character.gender === gender;
+          }
+        })
+        .filter(character => {
+          if(origin === 'all'){
+            return true;
+          } else {
+            return character.origin.name === origin;
+          }
+        })
         .map(item => {
           return (
             <li className="character" key={item.id}>
@@ -28,7 +43,10 @@ const CharacterList = props => {
 };
 
 CharacterList.propTypes = {
+  characters: PropTypes.arrayOf(PropTypes.object).isRequired,
   userInput: PropTypes.string.isRequired,
+  gender: PropTypes.string.isRequired,
+  origin: PropTypes.string.isRequired
 };
 
 export default CharacterList;
