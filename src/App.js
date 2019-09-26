@@ -12,10 +12,12 @@ class App extends React.Component {
 
     this.state = {
       characters: [],
-      userInput: ''
+      userInput: '',
+      origin: 'all'
     }
 
     this.getUserInput = this.getUserInput.bind(this);
+    this.getOrigin = this.getOrigin.bind(this);
 
   }
 
@@ -40,6 +42,14 @@ class App extends React.Component {
     })
   }
 
+  getOrigin(event) {
+    const newOrigin = event.currentTarget.value;
+
+    this.setState({
+      origin: newOrigin
+    })
+  }
+
   render() {
     return (
       <div className="app">
@@ -55,10 +65,13 @@ class App extends React.Component {
                 <Fragment>
                   <Filters 
                     getUserInput={this.getUserInput}
+                    getOrigin={this.getOrigin}
+                    origin={this.state.origin}
                   />
                   <CharacterList 
                     characters={this.state.characters}
                     userInput={this.state.userInput}
+                    origin={this.state.origin}
                   />
                 </Fragment>
               );
