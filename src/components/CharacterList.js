@@ -35,6 +35,7 @@ const CharacterList = props => {
 };
 
 CharacterList.propTypes = {
+  characters: PropTypes.arrayOf(PropTypes.object),
   userInput: PropTypes.string.isRequired,
   origin: PropTypes.string.isRequired
 

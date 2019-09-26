@@ -33,7 +33,6 @@ const Filters = props => {
 Filters.propTypes = {
   getUserInput: PropTypes.func.isRequired,
   getOrigin: PropTypes.func.isRequired,
-  origin: PropTypes.string.isRequired
 };
 
 export default Filters;
